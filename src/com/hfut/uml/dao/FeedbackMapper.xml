@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.hfut.uml.dao.FeedbackMapper">
+    
+<resultMap type="com.hfut.uml.domain.FeedBack" id="feedback">
+	
+</resultMap>
+
+<select id="lookup" parameterType="java.lang.String" resultMap="feedback">
+	SELECT * from feedback where tno = #{tno} and checkbyadmin = 2 and checkbycounsellor = 2 
+</select>
+
+<select id = "more" parameterType="java.lang.Integer" resultMap="feedback">
+	SELECT * from feedback where fid = #{fid}  
+</select>
+
+<update id="insertans" parameterType="feedback">
+        UPDATE feedback SET fbackcontent = #{fbackcontent} WHERE fid = #{fid}
+</update>
+
+</mapper>

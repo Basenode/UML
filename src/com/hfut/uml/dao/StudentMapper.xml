@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hfut.uml.dao.StudentMapper">
+	<resultMap type="com.hfut.uml.domain.FeedBack" id="feedBack">
+    </resultMap> 
+    <resultMap type="com.hfut.uml.domain.Student" id="student">
+    </resultMap> 
+	<resultMap type="com.hfut.uml.domain.FeedbackToTeac" id="feedbackToTeac">
+    </resultMap> 
+    
+    <update id="sendToTeacher" parameterType="feedBack" useGeneratedKeys="true" keyProperty="Fid">
+    	INSERT INTO FeedBack(Fid,fcontent,sno,tno, isAnyonymity,checkByAdmin,checkByCounsellor, FBackContent)
+    	values (#{fid}, #{fcontent}, #{sno}, #{tno}, #{isanyonymity},#{checkbyadmin},#{checkbycounsellor},#{fbackcontent})
+    </update>
+    
+    <select id="queryAll" parameterType="java.util.Map" resultMap="feedBack">
+        SELECT * FROM feedback
+       <where>
+           	 sno = #{sno} and FBackContent is not null
+        </where>
+    </select>
+    
+    <select id="queryStu" parameterType="java.util.Map" resultMap="student">
+        SELECT * FROM student
+       <where>
+           	 sno = #{sno}
+        </where>
+    </select>
+    
+    <update id="changePwd" parameterType="java.util.Map" >
+    	UPDATE student SET password = #{password} 
+    	<where>
+           	 sno = #{sno}
+        </where>
+    </update>
+    
+    <select id="teacherNum" parameterType="java.lang.String" resultMap="feedbackToTeac">
+        SELECT choosecourse.sno,course.tno,course.cname FROM choosecourse,course
+       <where>
+           	 choosecourse.sno = #{sno} and choosecourse.cno = course.cno
+        </where>
+    </select>
+</mapper>

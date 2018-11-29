@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hfut.uml.dao.TeacherMapper">
+	<resultMap type="com.hfut.uml.domain.Colteacherinfo" id="colteacherinfo">
+    </resultMap> 
+    <resultMap type="com.hfut.uml.domain.Outteacherinfo" id="outteacherinfo">
+    </resultMap> 
+    <resultMap type="com.hfut.uml.domain.Schteacherinfo" id="schteacherinfo">
+    </resultMap> 
+    
+    <select id="getSchteacherinfo" parameterType="java.util.Map" resultMap="schteacherinfo">
+        SELECT * FROM schteacherinfo
+       <where>
+           	  review != 1
+        </where>
+    </select>
+    
+    <select id="getOutteacherinfo" parameterType="java.util.Map" resultMap="outteacherinfo">
+        SELECT * FROM outteacherinfo
+       <where>
+           	  review != 1
+        </where>
+    </select>
+    
+    <select id="getColteacherinfo" parameterType="java.util.Map" resultMap="colteacherinfo">
+        SELECT * FROM colteacherinfo
+       <where>
+           	  review != 1
+        </where>
+    </select>
+    
+    <update id="delSchteacherinfo" parameterType="java.util.Map" >
+    	DELETE from schteacherinfo where intno = #{intno}
+    </update>
+    
+     <update id="delOutteacherinfo" parameterType="java.util.Map" >
+    	DELETE from outteacherinfo where outtno = #{outtno}
+    </update>
+    
+     <update id="delColteacherinfos" parameterType="java.util.Map" >
+    	DELETE from colteacherinfo where coltno = #{coltno}
+    </update>
+    
+    <update id="passSchteacherinfo" parameterType="java.util.Map" >
+    	UPDATE  schteacherinfo SET review = 1 where intno = #{intno}
+    </update>
+    
+    <update id="passOutteacherinfo" parameterType="java.util.Map" >
+    	UPDATE  outteacherinfo SET review = 1 where outtno = #{outtno}
+    </update>
+    
+    <update id="passColteacherinfo" parameterType="java.util.Map" >
+    	UPDATE  colteacherinfo SET review = 1 where coltno = #{coltno}
+    </update>
+</mapper>    

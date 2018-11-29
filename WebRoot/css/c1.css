@@ -1,0 +1,48 @@
+@charset "utf-8";
+body {
+	background-size:1920px auto;
+}
+.bg{
+	background-color:rgba(255,255,255,0.3);
+	margin:100px auto auto auto;
+	height:auto;
+	width:600px;
+}
+
+.ft1 {
+	font-size:50px;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(255,255,255,1);
+}
+
+.cr1 {
+	background-color:rgba(0,255,128,1);
+	font-size:18px;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(0,0,0,1);
+}
+
+.cr2 {
+	background-color:rgba(255,255,255,1);
+	font-size:18px;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(0,0,0,1);
+}
+
+a {
+	text-decoration:none;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(255,255,255,1);
+}
+
+a:visited {
+	text-decoration:none;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(255,255,255,1);
+}
+
+a:hover {
+	text-decoration:none;
+	font-family:"Microsoft YaHei UI";
+	color:rgba(0,0,255,1);
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hfut.uml.dao.AdminLoginMapper">
+<resultMap type="com.hfut.uml.domain.UserLG" id="userLG">
+    </resultMap>
+<resultMap type="com.hfut.uml.domain.Admin" id="admin">
+    </resultMap>
+
+<select id="checkAdmin" parameterType="userLG" resultMap="admin">
+	SELECT * from admin where adminNo = #{username} and password = #{password}
+</select>
+
+</mapper>
